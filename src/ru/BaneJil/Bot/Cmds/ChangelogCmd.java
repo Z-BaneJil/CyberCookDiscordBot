@@ -13,9 +13,8 @@ public class ChangelogCmd {
         EmbedBuilder embedBuilder = new EmbedBuilder();
 
         embedBuilder.setColor(new Color(232, 68, 68));
-        embedBuilder.setTitle("Изменения в версии 2.2.0", null);
-        embedBuilder.setDescription("1. ```Код бота, исправлен для простоты развития.```\n" +
-                "2. ```Команда рандом, тоже помещена в табличку, так как сильно контрастировала на фоне остальных команд.```");
+        embedBuilder.setTitle("Изменения в версии 2.2.1", null);
+        embedBuilder.setDescription("1. ```Исправление багов.```");
 
         channel.sendMessageEmbeds(embedBuilder.build()).queue();
     }

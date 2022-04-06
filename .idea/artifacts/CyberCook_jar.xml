@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CyberCook:jar">
+    <output-path>$USER_HOME$/Desktop/ServerMinecraft/plugins</output-path>
+    <root id="archive" name="CyberCook.jar">
+      <element id="module-output" name="CyberCook" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/spigot-1.16.5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/JDA-5.0.0-alpha.9-withDependencies.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

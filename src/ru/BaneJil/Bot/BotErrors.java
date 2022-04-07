@@ -21,6 +21,17 @@ public class BotErrors {
 
         channel.sendMessageEmbeds(embedBuilder.build()).queue();
     }
+    public static  void internalError(MessageReceivedEvent e, String[] command) {
+        MessageChannel channel = e.getChannel();
+
+        EmbedBuilder embedBuilder = new EmbedBuilder();
+
+        embedBuilder.setColor(new Color(232, 68, 68));
+        embedBuilder.setTitle("Ошибка");
+        embedBuilder.setDescription(Helpers.format("```Неизвестная ошибка в команде: \"%s\"!```", command[0]));
+
+        channel.sendMessageEmbeds(embedBuilder.build()).queue();
+    }
     public static void fewArgsError(MessageReceivedEvent e, String[] command) {
         MessageChannel channel = e.getChannel();
 

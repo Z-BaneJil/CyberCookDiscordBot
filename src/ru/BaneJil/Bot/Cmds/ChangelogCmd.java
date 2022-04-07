@@ -13,9 +13,9 @@ public class ChangelogCmd {
         EmbedBuilder embedBuilder = new EmbedBuilder();
 
         embedBuilder.setColor(new Color(232, 68, 68));
-        embedBuilder.setTitle("Изменения в версии 2.3.0", null);
-        embedBuilder.setDescription("1. ```Исправление багов.```\n" +
-                "2. ```Добавлен рандом чисел.```");
+        embedBuilder.setTitle("Изменения в версии 2.3.1", null);
+        embedBuilder.setDescription("1. ```Исправленен баг если вбить в рандом число выше: \"2147483647\". Она возникла еще на уровне языка программирования.```\n" +
+                "2. ```Добавлен новый тип ошибки: \"internal error\".```");
 
         channel.sendMessageEmbeds(embedBuilder.build()).queue();
     }

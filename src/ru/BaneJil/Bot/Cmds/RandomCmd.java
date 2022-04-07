@@ -8,6 +8,7 @@ import org.apache.commons.lang.math.NumberUtils;
 import ru.BaneJil.Bot.BotErrors;
 
 import java.awt.*;
+import java.text.ParseException;
 
 public class RandomCmd {
     private static final String[] wingmanMaps = {
@@ -38,7 +39,11 @@ public class RandomCmd {
     }
 
     private static Integer randomNumber(String command) {
-        return (int) (Math.random() * Integer.parseInt(command.trim()));
+        try {
+            return (int) (Math.random() * Integer.parseInt(command.trim()));
+        } catch (NumberFormatException e) {
+            return -1;
+        }
     }
 
     public static void use(MessageReceivedEvent e, String[] command) {
@@ -55,7 +60,14 @@ public class RandomCmd {
             embedBuilder.setDescription(Helpers.format("Выпала карта: %s", randomMap(competitiveMaps)));
             channel.sendMessageEmbeds(embedBuilder.build()).queue();
         } else if(NumberUtils.isNumber(command[1])) {
-            embedBuilder.setDescription(Helpers.format("Выпало число: %d", randomNumber(command[1])));
+            int number = randomNumber(command[1]);
+
+            if (number == -1) {
+                BotErrors.internalError(e, command);
+                return;
+            }
+
+            embedBuilder.setDescription(Helpers.format("Выпало число: %d", number));
             channel.sendMessageEmbeds(embedBuilder.build()).queue();
         } else {
             BotErrors.invalidArgsError(e, command);

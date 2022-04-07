@@ -4,6 +4,7 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.internal.utils.Helpers;
+import org.apache.commons.lang.math.NumberUtils;
 import ru.BaneJil.Bot.BotErrors;
 
 import java.awt.*;
@@ -36,6 +37,10 @@ public class RandomCmd {
         return maps[number];
     }
 
+    private static Integer randomNumber(String command) {
+        return (int) (Math.random() * Integer.parseInt(command.trim()));
+    }
+
     public static void use(MessageReceivedEvent e, String[] command) {
         MessageChannel channel = e.getChannel();
         EmbedBuilder embedBuilder = new EmbedBuilder();
@@ -48,6 +53,9 @@ public class RandomCmd {
             channel.sendMessageEmbeds(embedBuilder.build()).queue();
         } else if (command[1].equalsIgnoreCase("мм")) {
             embedBuilder.setDescription(Helpers.format("Выпала карта: %s", randomMap(competitiveMaps)));
+            channel.sendMessageEmbeds(embedBuilder.build()).queue();
+        } else if(NumberUtils.isNumber(command[1])) {
+            embedBuilder.setDescription(Helpers.format("Выпало число: %d", randomNumber(command[1])));
             channel.sendMessageEmbeds(embedBuilder.build()).queue();
         } else {
             BotErrors.invalidArgsError(e, command);

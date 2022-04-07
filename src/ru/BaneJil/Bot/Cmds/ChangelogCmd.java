@@ -13,8 +13,9 @@ public class ChangelogCmd {
         EmbedBuilder embedBuilder = new EmbedBuilder();
 
         embedBuilder.setColor(new Color(232, 68, 68));
-        embedBuilder.setTitle("Изменения в версии 2.2.1", null);
-        embedBuilder.setDescription("1. ```Исправление багов.```");
+        embedBuilder.setTitle("Изменения в версии 2.3.0", null);
+        embedBuilder.setDescription("1. ```Исправление багов.```\n" +
+                "2. ```Добавлен рандом чисел.```");
 
         channel.sendMessageEmbeds(embedBuilder.build()).queue();
     }

@@ -16,7 +16,7 @@ public class BotErrors {
 
         embedBuilder.setColor(new Color(232, 68, 68));
         embedBuilder.setTitle("Ошибка");
-        embedBuilder.setDescription(Helpers.format("```Много аргументов к команде: \"%s\"!```" +
+        embedBuilder.setDescription(Helpers.format("```Много аргументов к команде: \"%s\"!```\n" +
                 "```Смотрите: \"%s\".```", command[0], CmdsNames.HELP.getCmdName()));
 
         channel.sendMessageEmbeds(embedBuilder.build()).queue();
@@ -28,7 +28,7 @@ public class BotErrors {
 
         embedBuilder.setColor(new Color(232, 68, 68));
         embedBuilder.setTitle("Ошибка");
-        embedBuilder.setDescription(Helpers.format("```Моло аргументов к команде: \"%s\"!```" +
+        embedBuilder.setDescription(Helpers.format("```Моло аргументов к команде: \"%s\"!```\n" +
                 "```Смотрите: \"%s\".```", command[0], CmdsNames.HELP.getCmdName()));
 
         channel.sendMessageEmbeds(embedBuilder.build()).queue();
@@ -40,7 +40,7 @@ public class BotErrors {
 
         embedBuilder.setColor(new Color(232, 68, 68));
         embedBuilder.setTitle("Ошибка");
-        embedBuilder.setDescription(Helpers.format("```Неверные аргументы к команде: \"%s\"!```" +
+        embedBuilder.setDescription(Helpers.format("```Неверные аргументы к команде: \"%s\"!```\n" +
                 "```Смотрите: \"%s\".```", command[0], CmdsNames.HELP.getCmdName()));
 
         channel.sendMessageEmbeds(embedBuilder.build()).queue();
